@@ -1,7 +1,7 @@
 --//Legit Head\\
 local headSize = 1 -- initial head size
 local toggle = false -- initial toggle state
-local key = "E" -- key to press to toggle
+local key = "T" -- key to press to toggle
  
 local function createHeadIndicator(hrp)
     local boxAdornment = Instance.new("BoxHandleAdornment", hrp.Head)
