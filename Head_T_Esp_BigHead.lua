@@ -1,4 +1,4 @@
---//Legit Head\\
+--// Head Adornment \\
 local headSize = 1 -- initial head size
 local toggle = false -- initial toggle state
 local key = "T" -- key to press to toggle
