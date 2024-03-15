@@ -10,7 +10,7 @@ local function createHeadIndicator(hrp)
     boxAdornment.AlwaysOnTop = true
     boxAdornment.ZIndex = 10
     boxAdornment.Transparency = 0
-    boxAdornment.Size = Vector3.new(1, 1, 1)
+    boxAdornment.Size = Vector3.new(2, 2, 2)
 end
  
 local function toggleHeadSize()
@@ -23,7 +23,7 @@ local function toggleHeadSize()
     for v251, v252 in pairs(workspace:GetChildren()) do
         if v252:FindFirstChild("HumanoidRootPart") then
             v252.Head.Size = Vector3.new(headSize, headSize, headSize) -- set the head size
-            v252.Head.Transparency = 0.2
+            v252.Head.Transparency = 0.3
             v252.Head.Color = Color3.fromRGB(0,255,0)
             v252.Head.CanCollide = false
             createHeadIndicator(v252)
