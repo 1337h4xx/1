@@ -23,8 +23,8 @@ local function toggleHeadSize()
     for v251, v252 in pairs(workspace:GetChildren()) do
         if v252:FindFirstChild("HumanoidRootPart") then
             v252.Head.Size = Vector3.new(headSize, headSize, headSize) -- set the head size
-            v252.Head.Transparency = 0.3
-            v252.Head.Color = Color3.fromRGB(0,255,0)
+            v252.Head.Transparency = 0.2
+            v252.Head.Color = Color3.fromRGB(123,222,78)
             v252.Head.CanCollide = false
             createHeadIndicator(v252)
         end
