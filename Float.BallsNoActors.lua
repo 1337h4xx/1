@@ -132,7 +132,7 @@ function Esp:UpdateEsp()
                 v.Distance.Visible = false
             end
             if OnScreen == true and Esp.Settings.Armour == true and Distance <= Esp.Settings.RenderDistance then
-                if Character.Armor:FindFirstChildOfClass("Folder") then v.Armour.Text = "Armoured" else v.Armour.Text = "Naked" end
+                if Character.Armor:FindFirstChildOfClass("Folder") then v.Armour.Text = "DANGER" else v.Armour.Text = "Naked" end
                 if Esp.Settings.TeamCheck == true and TeamTag == false then v.Armour.Visible = true elseif Esp.Settings.TeamCheck == true and TeamTag == true then v.Armour.Visible = false else v.Armour.Visible = true end
                 if Esp.Settings.TargetSleepers == true and sleeping == true then v.Armour.Visible = false end
                 v.Armour.Outline=Esp.Settings.TextOutline;v.Armour.Size = math.max(math.min(math.abs(Esp.Settings.TextSize*scale),Esp.Settings.TextSize),Esp.Settings.MinTextSize);
@@ -193,7 +193,7 @@ local PlayerSettingsVisualTab = PlayerVisualTabbox:AddTab('Settings')
 PlayerVisualTab:AddToggle('Boxes',{Text='Boxes',Default=false}):AddColorPicker('BoxesColor',{Default=Color3.fromRGB(0,255,239),Title='Color'}):AddColorPicker('BoxesOutlineColor',{Default=Color3.fromRGB(0,0,0),Title='Color'})
 PlayerVisualTab:AddToggle('Distances',{Text='Distance',Default=false}):AddColorPicker('DistancesColor',{Default=Color3.fromRGB(0,255,239),Title='Color'})
 PlayerVisualTab:AddToggle('Sleeping',{Text='Sleeping',Default=false}):AddColorPicker('SleepingColor',{Default=Color3.fromRGB(0,255,239),Title='Color'})
-PlayerVisualTab:AddToggle('Armour',{Text='Armour',Default=false}):AddColorPicker('ArmourColor',{Default=Color3.fromRGB(0,255,239),Title='Color'})
+PlayerVisualTab:AddToggle('Armour',{Text='Armour',Default=false}):AddColorPicker('ArmourColor',{Default=Color3.fromRGB(225,6,0),Title='Color'})
 PlayerVisualTab:AddToggle('ViewAngle',{Text='View Angle',Default=false}):AddColorPicker('ViewAngleColor',{Default=Color3.fromRGB(0,255,239),Title='Color'})
 
 --Esp Switches
@@ -309,7 +309,7 @@ local WatermarkConnection = game:GetService('RunService').RenderStepped:Connect(
         FrameCounter = 0;
     end;
 
-    Library:SetWatermark(('Float.balls [No Actor] | %s fps | %s ms'):format(
+    Library:SetWatermark(('SKIDDED [No Actor] | %s fps | %s ms'):format(
         math.floor(FPS),
         math.floor(game:GetService('Stats').Network.ServerStatsItem['Data Ping']:GetValue())
     ));
@@ -326,7 +326,7 @@ Library:OnUnload(function()
     Library.Unloaded = true
 end)
 
-local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
+local MenuGroup = Tabs['Settings']:AddLeftGroupbox('Menu')
 MenuGroup:AddButton('Unload', function() Library:Unload() end)
 MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'End', NoUI = true, Text = 'Menu keybind' })
 Library.ToggleKeybind = Options.MenuKeybind
@@ -334,10 +334,10 @@ ThemeManager:SetLibrary(Library)
 SaveManager:SetLibrary(Library)
 SaveManager:IgnoreThemeSettings()
 SaveManager:SetIgnoreIndexes({ 'MenuKeybind' })
-ThemeManager:SetFolder('Float')
-SaveManager:SetFolder('Float/TridentSurvivalNoActor')
-SaveManager:BuildConfigSection(Tabs['UI Settings'])
-ThemeManager:ApplyToTab(Tabs['UI Settings'])
+ThemeManager:SetFolder('Swag')
+SaveManager:SetFolder('Build')
+SaveManager:BuildConfigSection(Tabs['Settings'])
+ThemeManager:ApplyToTab(Tabs['Settings'])
 SaveManager:LoadAutoloadConfig()
 
 Library:Notify("Status: Undetected 🟩",8)
