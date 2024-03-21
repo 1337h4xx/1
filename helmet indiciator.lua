@@ -45,7 +45,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
             if OnScreen then
                 Text.Visible = true
                 Text.Position = Vector2.new(ScreenPosition.X, ScreenPosition.Y)
-                Text.Text = CheckSteelHelmet(Model) and "OP" or "[ ]"
+                Text.Text = CheckSteelHelmet(Model) and "OP" or " "
                 Text.Color = Color3.new(1, 1, 1)
             else
                 Text.Visible = false
