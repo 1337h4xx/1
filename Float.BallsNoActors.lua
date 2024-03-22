@@ -17,7 +17,7 @@ local Esp = {Settings={
     Armour=true,ArmourColor=Color3.fromRGB(34,255,7),
     Tool=true,ToolColor=Color3.fromRGB(34,255,7),
     ViewAngle=true,ViewAngleColor=Color3.fromRGB(255,255,255),ViewAngleThickness=1,ViewAngleTransparrency=1,
-    TextFont=2,TextOutline=true,TextSize=25,RenderDistance=1500,TeamCheck=false,TargetSleepers=false,MinTextSize=8
+    TextFont=10,TextOutline=true,TextSize=24,RenderDistance=1500,TeamCheck=false,TargetSleepers=false,MinTextSize=8
 },Drawings={},Connections={},Players={}}
 local Fonts = {["UI"]=0,["System"]=1,["Plex"]=2,["Monospace"]=3}
 local cache = {}
