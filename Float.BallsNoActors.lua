@@ -5,19 +5,19 @@ local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
 local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
 local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
 
-local Window = Library:CreateWindow({Title = 'Float.Balls | Free [No Actor]',Center = true,AutoShow = true,TabPadding = 8,MenuFadeTime = 0.2})
+local Window = Library:CreateWindow({Title = 'LEGION',Center = true,AutoShow = true,TabPadding = 8,MenuFadeTime = 0.2})
 local Tabs = {Main = Window:AddTab('Main'),Visual = Window:AddTab('Visual'),['UI Settings'] = Window:AddTab('UI Settings'),}
 
 --Tables
 local Functions = {}
 local Esp = {Settings={
-    Boxes=true,BoxesOutline=true,BoxesColor=Color3.fromRGB(255,255,255),BoxesOutlineColor=Color3.fromRGB(0,0,0),
-    Sleeping=false,SleepingColor=Color3.fromRGB(255,255,255),
-    Distances=false,DistanceColor=Color3.fromRGB(255,255,255),
-    Armour=false,ArmourColor=Color3.fromRGB(255,255,255),
-    Tool=false,ToolColor=Color3.fromRGB(255,255,255),
-    ViewAngle=false,ViewAngleColor=Color3.fromRGB(255,255,255),ViewAngleThickness=1,ViewAngleTransparrency=1,
-    TextFont=2,TextOutline=true,TextSize=15,RenderDistance=1500,TeamCheck=false,TargetSleepers=false,MinTextSize=8
+    Boxes=true,BoxesOutline=true,BoxesColor=Color3.fromRGB(34,255,7),BoxesOutlineColor=Color3.fromRGB(0,0,0),
+    Sleeping=false,SleepingColor=Color3.fromRGB(34,255,7),
+    Distances=true,DistanceColor=Color3.fromRGB(34,255,7),
+    Armour=true,ArmourColor=Color3.fromRGB(34,255,7),
+    Tool=true,ToolColor=Color3.fromRGB(34,255,7),
+    ViewAngle=true,ViewAngleColor=Color3.fromRGB(255,255,255),ViewAngleThickness=1,ViewAngleTransparrency=1,
+    TextFont=2,TextOutline=true,TextSize=19,RenderDistance=1500,TeamCheck=false,TargetSleepers=false,MinTextSize=8
 },Drawings={},Connections={},Players={}}
 local Fonts = {["UI"]=0,["System"]=1,["Plex"]=2,["Monospace"]=3}
 local cache = {}
@@ -132,7 +132,7 @@ function Esp:UpdateEsp()
                 v.Distance.Visible = false
             end
             if OnScreen == true and Esp.Settings.Armour == true and Distance <= Esp.Settings.RenderDistance then
-                if Character.Armor:FindFirstChildOfClass("Folder") then v.Armour.Text = "DANGER" else v.Armour.Text = "Naked" end
+                if Character.Armor:FindFirstChildOfClass("Folder") then v.Armour.Text = "Protected" else v.Armour.Text = "Naked" end
                 if Esp.Settings.TeamCheck == true and TeamTag == false then v.Armour.Visible = true elseif Esp.Settings.TeamCheck == true and TeamTag == true then v.Armour.Visible = false else v.Armour.Visible = true end
                 if Esp.Settings.TargetSleepers == true and sleeping == true then v.Armour.Visible = false end
                 v.Armour.Outline=Esp.Settings.TextOutline;v.Armour.Size = math.max(math.min(math.abs(Esp.Settings.TextSize*scale),Esp.Settings.TextSize),Esp.Settings.MinTextSize);
@@ -239,13 +239,13 @@ end)
 PlayerSettingsVisualTab:AddToggle('TargetSleepers',{Text='Dont Show Sleepers',Default=true}):OnChanged(function(Value)
     Esp.Settings.TargetSleepers = Value
 end)
-PlayerSettingsVisualTab:AddToggle('BoxesOutlines',{Text='Box Outlines',Default=true}):OnChanged(function(Value)
+PlayerSettingsVisualTab:AddToggle('BoxesOutlines',{Text='Box Outlines',Default=false}):OnChanged(function(Value)
     Esp.Settings.BoxesOutline = Value
 end)
 PlayerSettingsVisualTab:AddToggle('TeamCheck',{Text='Team Check',Default=true}):OnChanged(function(Value)
     Esp.Settings.TeamCheck = Value
 end)
-PlayerSettingsVisualTab:AddToggle('TextOutline',{Text='Text Outlines',Default=true}):OnChanged(function(Value)
+PlayerSettingsVisualTab:AddToggle('TextOutline',{Text='Text Outlines',Default=false}):OnChanged(function(Value)
     Esp.Settings.TextOutline = Value
 end)
 
