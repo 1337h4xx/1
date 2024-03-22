@@ -54,7 +54,7 @@ function Esp:CreateEsp(PlayerTable)
     drawings.Box = Functions:Draw("Square",{Thickness=1,Filled=false,Transparency=1,Color=Esp.Settings.BoxesColor,Visible=false,ZIndex = 2,Visible=false});
     drawings.Sleeping = Functions:Draw("Text",{Text = "Nil",Font=Esp.Settings.TextFont,Size=Esp.Settings.TextSize,Center=true,Outline=Esp.Settings.TextOutline,Color = Esp.Settings.SleepingColor,ZIndex = 2,Visible=false})
     drawings.Distance = Functions:Draw("Text",{Text = "Nil",Font=Esp.Settings.TextFont,Size=Esp.Settings.TextSize,Center=true,Outline=Esp.Settings.TextOutline,Color = Esp.Settings.SleepingColor,ZIndex = 2,Visible=false})
-    drawings.Armour = Functions:Draw("Text",{Text = "Naked",Font=Esp.Settings.TextFont,Size=Esp.Settings.TextSize,Center=false,Outline=Esp.Settings.TextOutline,Color = Esp.Settings.ArmourColor,ZIndex = 2,Visible=false})
+    drawings.Armour = Functions:Draw("Text",{Text = " ",Font=Esp.Settings.TextFont,Size=Esp.Settings.TextSize,Center=false,Outline=Esp.Settings.TextOutline,Color = Esp.Settings.ArmourColor,ZIndex = 2,Visible=false})
     drawings.ViewAngle = Functions:Draw("Line",{Thickness=Esp.Settings.ViewAngleThickness,Transparency=Esp.Settings.ViewAngleTransparrency,Color=Esp.Settings.ViewAngleColor,ZIndex=2,Visible=false})
     drawings.PlayerTable = PlayerTable
     Esp.Players[PlayerTable.model] = drawings
@@ -132,7 +132,7 @@ function Esp:UpdateEsp()
                 v.Distance.Visible = false
             end
             if OnScreen == true and Esp.Settings.Armour == true and Distance <= Esp.Settings.RenderDistance then
-                if Character.Armor:FindFirstChildOfClass("Folder") then v.Armour.Text = "Protected" else v.Armour.Text = "Naked" end
+                if Character.Armor:FindFirstChildOfClass("Folder") then v.Armour.Text = "Danger" else v.Armour.Text = " " end
                 if Esp.Settings.TeamCheck == true and TeamTag == false then v.Armour.Visible = true elseif Esp.Settings.TeamCheck == true and TeamTag == true then v.Armour.Visible = false else v.Armour.Visible = true end
                 if Esp.Settings.TargetSleepers == true and sleeping == true then v.Armour.Visible = false end
                 v.Armour.Outline=Esp.Settings.TextOutline;v.Armour.Size = math.max(math.min(math.abs(Esp.Settings.TextSize*scale),Esp.Settings.TextSize),Esp.Settings.MinTextSize);
