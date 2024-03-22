@@ -5,7 +5,7 @@ local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
 local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
 local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
 
-local Window = Library:CreateWindow({Title = 'LEGION',Center = true,AutoShow = true,TabPadding = 8,MenuFadeTime = 0.2})
+local Window = Library:CreateWindow({Title = 'LEGION',Center = true,AutoShow = true,TabPadding = 8,MenuFadeTime = 0})
 local Tabs = {Main = Window:AddTab('Main'),Visual = Window:AddTab('Visual'),['UI Settings'] = Window:AddTab('UI Settings'),}
 
 --Tables
