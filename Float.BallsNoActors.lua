@@ -17,7 +17,7 @@ local Esp = {Settings={
     Armour=true,ArmourColor=Color3.fromRGB(34,255,7),
     Tool=true,ToolColor=Color3.fromRGB(34,255,7),
     ViewAngle=true,ViewAngleColor=Color3.fromRGB(255,255,255),ViewAngleThickness=1,ViewAngleTransparrency=1,
-    TextFont=2,TextOutline=true,TextSize=19,RenderDistance=1500,TeamCheck=false,TargetSleepers=false,MinTextSize=8
+    TextFont=2,TextOutline=true,TextSize=25,RenderDistance=1500,TeamCheck=false,TargetSleepers=false,MinTextSize=8
 },Drawings={},Connections={},Players={}}
 local Fonts = {["UI"]=0,["System"]=1,["Plex"]=2,["Monospace"]=3}
 local cache = {}
@@ -190,11 +190,11 @@ local PlayerVisualTabbox = Tabs.Visual:AddLeftTabbox()
 local PlayerVisualTab = PlayerVisualTabbox:AddTab('Players')
 local PlayerSettingsVisualTab = PlayerVisualTabbox:AddTab('Settings')
 
-PlayerVisualTab:AddToggle('Boxes',{Text='Boxes',Default=false}):AddColorPicker('BoxesColor',{Default=Color3.fromRGB(0,255,239),Title='Color'}):AddColorPicker('BoxesOutlineColor',{Default=Color3.fromRGB(0,0,0),Title='Color'})
-PlayerVisualTab:AddToggle('Distances',{Text='Distance',Default=false}):AddColorPicker('DistancesColor',{Default=Color3.fromRGB(0,255,239),Title='Color'})
-PlayerVisualTab:AddToggle('Sleeping',{Text='Sleeping',Default=false}):AddColorPicker('SleepingColor',{Default=Color3.fromRGB(0,255,239),Title='Color'})
-PlayerVisualTab:AddToggle('Armour',{Text='Armour',Default=false}):AddColorPicker('ArmourColor',{Default=Color3.fromRGB(225,6,0),Title='Color'})
-PlayerVisualTab:AddToggle('ViewAngle',{Text='View Angle',Default=false}):AddColorPicker('ViewAngleColor',{Default=Color3.fromRGB(0,255,239),Title='Color'})
+PlayerVisualTab:AddToggle('Boxes',{Text='Boxes',Default=true}):AddColorPicker('BoxesColor',{Default=Color3.fromRGB(34,255,7),Title='Color'}):AddColorPicker('BoxesOutlineColor',{Default=Color3.fromRGB(0,0,0),Title='Color'})
+PlayerVisualTab:AddToggle('Distances',{Text='Distance',Default=true}):AddColorPicker('DistancesColor',{Default=Color3.fromRGB(255,255,255),Title='Color'})
+PlayerVisualTab:AddToggle('Sleeping',{Text='Sleeping',Default=false}):AddColorPicker('SleepingColor',{Default=Color3.fromRGB(255,255,255),Title='Color'})
+PlayerVisualTab:AddToggle('Armour',{Text='Armour',Default=true}):AddColorPicker('ArmourColor',{Default=Color3.fromRGB(34,255,7),Title='Color'})
+PlayerVisualTab:AddToggle('ViewAngle',{Text='View Angle',Default=true}):AddColorPicker('ViewAngleColor',{Default=Color3.fromRGB(255,255,255),Title='Color'})
 
 --Esp Switches
 Toggles.ViewAngle:OnChanged(function(Value)
