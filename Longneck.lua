@@ -1,3 +1,4 @@
+--//8.93 is max longneck
 local longneck = { LongNeckEnabled = false, UpperLimitDefault = 8.75, LowerLimitDefault = 8.85, }
 local keybind = 'V'
 local function toggleLongNeck()
