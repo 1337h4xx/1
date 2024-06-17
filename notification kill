@@ -8,7 +8,7 @@ end
 local function hitmarker(Name, Distance, Damage, Duration)
    task.spawn(function()
        local hitlog = Drawing.new('Text')
-       hitlog.Size = 13
+       hitlog.Size = 16
        hitlog.Font = 2
        hitlog.Text = "Hit: "..Name.." / Distance: "..Distance.."s / Damage: "..math.floor(Damage).."Hp"
        hitlog.Visible = true
