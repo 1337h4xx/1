@@ -1,0 +1,25 @@
+local camera = game.Workspace.CurrentCamera
+
+local function teleportClosestHeadToCamera()
+    local closestHead = nil
+    local closestDistance = math.huge
+
+    for _, character in ipairs(game.Workspace:GetChildren()) do
+        if character:IsA("Model") then
+            local head = character:FindFirstChild("Head")
+            if head then
+                local distance = (head.Position - camera.CFrame.Position).Magnitude
+                if distance < closestDistance then
+                    closestHead = head
+                    closestDistance = distance
+                end
+            end
+        end
+    end
+
+    if closestHead then
+        closestHead.CFrame = camera.CFrame * CFrame.new(0, 2, -5) -- Adjust the offset as needed
+    end
+end
+
+teleportClosestHeadToCamera()
