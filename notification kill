@@ -10,7 +10,7 @@ local function hitmarker(Name, Distance, Damage, Duration)
        local hitlog = Drawing.new('Text')
        hitlog.Size = 25
        hitlog.Font = 2
-       hitlog.Text = "Hit: "..Name.." / "..Distance.."s / "..math.floor(Damage).."Hp"
+       hitlog.Text = "..Name.." / "..Distance.."s / "..math.floor(Damage).."Hp"
        hitlog.Visible = true
        hitlog.ZIndex = 3
        hitlog.Center = true
