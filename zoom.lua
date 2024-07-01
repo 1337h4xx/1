@@ -3,12 +3,12 @@ local uis = game:GetService("UserInputService")
 
 uis.InputBegan:Connect(function(a)
     if a.KeyCode == Enum.KeyCode.Q then
-        workspace.CurrentCamera.FieldOfView = 10
+        workspace.CurrentCamera.FieldOfView = 17
     end
 end)
 
 uis.InputEnded:Connect(function(b)
     if b.KeyCode == Enum.KeyCode.Q then
-        workspace.CurrentCamera.FieldOfView = 60
+        workspace.CurrentCamera.FieldOfView = 70
     end
 end)
