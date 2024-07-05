@@ -42,7 +42,7 @@ end)
 --End
 
 local longneck = { LongNeckEnabled = false, UpperLimitDefault = 6.5, LowerLimitDefault = 6.5, }
-local keybind = 'F'
+local keybind = 'Q'
 local function toggleLongNeck()
     longneck.LongNeckEnabled = not longneck.LongNeckEnabled
     if not longneck.LongNeckEnabled then
