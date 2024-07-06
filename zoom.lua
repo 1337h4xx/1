@@ -1,14 +1,34 @@
-local uis = game:GetService("UserInputService")
--- u can change Enum.KeyCode.V to the key u want for example if u want it to be B u change it to Enum.KeyCode.B
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+local Camera = workspace.CurrentCamera
 
-uis.InputBegan:Connect(function(a)
-    if a.KeyCode == Enum.KeyCode.Q then
-        workspace.CurrentCamera.FieldOfView = 17
-    end
+local zooming = false
+local normalFOV = Camera.FieldOfView
+local zoomFOV = 30 -- Adjust this value for your desired zoom level
+
+-- Function to toggle zoom
+local function toggleZoom(input, gameProcessed)
+if input.KeyCode == Enum.KeyCode.T then
+zooming = not zooming
+if zooming then
+Camera.FieldOfView = zoomFOV
+else
+Camera.FieldOfView = normalFOV
+end
+end
+end
+
+-- Connect the function to key press
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+toggleZoom(input, gameProcessed)
 end)
 
-uis.InputEnded:Connect(function(b)
-    if b.KeyCode == Enum.KeyCode.Q then
-        workspace.CurrentCamera.FieldOfView = 70
-    end
+-- Ensure zoom is reset if the script stops
+game:BindToClose(function()
+Camera.FieldOfView = normalFOV
+end)
+
+-- Also reset zoom on player character respawn
+game.Players.LocalPlayer.CharacterAdded:Connect(function()
+Camera.FieldOfView = normalFOV
 end)
