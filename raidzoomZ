@@ -1,0 +1,12 @@
+local UIS, RS, Camera = game:GetService("UserInputService"), game:GetService("RunService"), workspace.CurrentCamera
+local enabled, keybind, speed = false, Enum.KeyCode.Z, 11
+
+local function updateFreecam()
+local mv, delta = Vector3.new(), UIS:GetMouseDelta()
+if UIS:IsKeyDown(keybind) then
+if UIS:IsKeyDown(Enum.KeyCode.Z) then mv = mv + (Camera.CFrame.LookVector * speed) end
+Camera.CFrame = Camera.CFrame * CFrame.Angles(-math.rad(delta.Y * 0.1), -math.rad(delta.X * 0.1), 0) + mv
+end
+end
+
+RS.RenderStepped:Connect(updateFreecam)
