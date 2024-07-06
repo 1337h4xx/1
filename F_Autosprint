@@ -1,0 +1,22 @@
+local UserInputService = game:GetService("UserInputService")
+local VirtualInputManager = game:GetService("VirtualInputManager")
+
+-- function to simulate key press
+local function simulateKeyPress(keyCode, duration)
+VirtualInputManager:SendKeyEvent(true, keyCode, false, nil) -- press key
+wait(duration)
+VirtualInputManager:SendKeyEvent(false, keyCode, false, nil) -- release key
+end
+
+-- function to handle 'F' key press
+local function onFKeyPress(input, gameProcessedEvent)
+if input.KeyCode == Enum.KeyCode.F and not gameProcessedEvent then
+local threadC = coroutine.wrap(function() simulateKeyPress(Enum.KeyCode.C, 0.6) end)
+local threadSpace = coroutine.wrap(function() simulateKeyPress(Enum.KeyCode.Space, 0.6) end)
+
+threadC()
+threadSpace()
+end
+end
+
+UserInputService.InputBegan:Connect(onFKeyPress)
