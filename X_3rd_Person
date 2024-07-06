@@ -1,5 +1,5 @@
 local UIS, RS, Camera = game:GetService("UserInputService"), game:GetService("RunService"), workspace.CurrentCamera
-local enabled, keybind, speed = false, Enum.KeyCode.X, 55
+local enabled, keybind, speed = false, Enum.KeyCode.X, 100
 
 local function updateFreecam()
 local mv, delta = Vector3.new(), UIS:GetMouseDelta()
