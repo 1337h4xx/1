@@ -7,6 +7,7 @@ local scripts = {
     'https://raw.githubusercontent.com/1337h4xx/1/main/X_3rd_Person',
     'https://raw.githubusercontent.com/1337h4xx/1/main/Z_Short_Zoom',
     'https://raw.githubusercontent.com/1337h4xx/1/main/kill_notification',
+    'https://raw.githubusercontent.com/1337h4xx/1/main/mainstream_cracked',
 }
 
 -- Function to create and resume a coroutine for each script
