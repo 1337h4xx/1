@@ -1,11 +1,10 @@
 -- List of scripts to load
 local scripts = {
     'https://raw.githubusercontent.com/1337h4xx/1/main/F_Autosprint',
-    'https://raw.githubusercontent.com/1337h4xx/1/main/Q_FAR_ZOOM',
     'https://raw.githubusercontent.com/1337h4xx/1/main/Longneck_V_B_H.lua',
     'https://raw.githubusercontent.com/1337h4xx/1/main/T_For_PVP',
     'https://raw.githubusercontent.com/1337h4xx/1/main/X_3rd_Person',
-    'https://raw.githubusercontent.com/1337h4xx/1/main/Z_Short_Zoom',
+    'https://raw.githubusercontent.com/1337h4xx/1/main/FreecamUD.lua',
     'https://raw.githubusercontent.com/1337h4xx/1/main/kill_notification',
     'https://raw.githubusercontent.com/1337h4xx/1/main/mainstream_cracked',
 }
