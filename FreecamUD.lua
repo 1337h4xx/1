@@ -1,5 +1,5 @@
 local UIS, RS, Camera = game:GetService("UserInputService"), game:GetService("RunService"), workspace.CurrentCamera
-local keybind, speed = Enum.KeyCode.Z, 0.2  -- Adjust speed to a slower value
+local keybind, speed = Enum.KeyCode.Q, 0.2  -- Adjust speed to a slower value
 local droneCFrame = Camera.CFrame
 local isFlying = false
 
