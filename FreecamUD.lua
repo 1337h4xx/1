@@ -18,8 +18,8 @@ mv = mv + (UIS:IsKeyDown(Enum.KeyCode.W) and (droneCFrame.LookVector * speed) or
 mv = mv + (UIS:IsKeyDown(Enum.KeyCode.S) and (-droneCFrame.LookVector * speed) or Vector3.new())
 mv = mv + (UIS:IsKeyDown(Enum.KeyCode.A) and (-droneCFrame.RightVector * speed) or Vector3.new())
 mv = mv + (UIS:IsKeyDown(Enum.KeyCode.D) and (droneCFrame.RightVector * speed) or Vector3.new())
-mv = mv + (UIS:IsKeyDown(Enum.KeyCode.E) and (droneCFrame.UpVector * speed) or Vector3.new())
-mv = mv + (UIS:IsKeyDown(Enum.KeyCode.Q) and (-droneCFrame.UpVector * speed) or Vector3.new())
+mv = mv + (UIS:IsKeyDown(Enum.KeyCode.C) and (droneCFrame.UpVector * speed) or Vector3.new())
+mv = mv + (UIS:IsKeyDown(Enum.KeyCode.Z) and (-droneCFrame.UpVector * speed) or Vector3.new())
 
 droneCFrame = droneCFrame + mv
 Camera.CFrame = droneCFrame
