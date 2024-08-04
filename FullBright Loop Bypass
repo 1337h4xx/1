@@ -1,0 +1,20 @@
+local Lighting = game:GetService("Lighting")
+local RunService = game:GetService("RunService")
+
+local TargetBrightness = 2
+local TargetAmbient = Color3.new(1, 1, 1)
+
+local function ForceFullbright()
+Lighting.Brightness = TargetBrightness
+Lighting.Ambient = TargetAmbient
+end
+
+-- Continuously check and set the brightness and ambient to the target values
+RunService.RenderStepped:Connect(function()
+if Lighting.Brightness ~= TargetBrightness or Lighting.Ambient ~= TargetAmbient then
+ForceFullbright()
+end
+end)
+
+-- Initial set
+ForceFullbright()
