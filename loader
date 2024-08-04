@@ -7,8 +7,10 @@ local scripts = {
     'https://raw.githubusercontent.com/1337h4xx/1/main/FreecamUD.lua',
     'https://raw.githubusercontent.com/1337h4xx/1/main/kill_notification',
     'https://raw.githubusercontent.com/1337h4xx/1/main/SigmaV3',
+    'https://raw.githubusercontent.com/1337h4xx/1/main/FullBright%20Loop%20Bypass',
 -- Removed Mainstreeam
--- Remove T Zoom
+-- Removed T Zoom
+-- Added Full Bright
 }
 
 -- Function to create and resume a coroutine for each script
