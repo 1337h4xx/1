@@ -8,6 +8,7 @@ local scripts = {
     'https://raw.githubusercontent.com/1337h4xx/1/main/kill_notification',
     'https://raw.githubusercontent.com/1337h4xx/1/main/SigmaV3',
 -- Removed Mainstreeam
+-- Remove T Zoom
 }
 
 -- Function to create and resume a coroutine for each script
