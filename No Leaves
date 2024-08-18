@@ -1,0 +1,54 @@
+local CollectionService = game:GetService("CollectionService")
+
+-- Function to mark leaves
+local function markLeaves(object)
+if string.find(object.Name, "Leaves") then
+CollectionService:AddTag(object, "Leaves")
+end
+end
+
+-- Function to make leaves invisible and non-collidable
+local function hideLeaves()
+for _, leaf in ipairs(CollectionService:GetTagged("Leaves")) do
+if leaf:IsA("BasePart") then
+leaf.Transparency = 1
+leaf.CanCollide = false
+leaf.Anchored = true
+elseif leaf:IsA("Model") then
+for _, part in ipairs(leaf:GetDescendants()) do
+if part:IsA("BasePart") then
+part.Transparency = 1
+part.CanCollide = false
+part.Anchored = true
+end
+end
+end
+end
+end
+
+-- Handler for new descendants
+local function onDescendantAdded(descendant)
+if string.find(descendant.Name, "Leaves") then
+markLeaves(descendant)
+hideLeaves()
+end
+end
+
+-- Handler for descendants being removed
+local function onDescendantRemoving(descendant)
+if string.find(descendant.Name, "Leaves") then
+CollectionService:RemoveTag(descendant, "Leaves")
+end
+end
+
+-- Initial tagging of existing leaves
+for _, descendant in ipairs(game.Workspace:GetDescendants()) do
+markLeaves(descendant)
+end
+
+-- Connect events
+game.Workspace.DescendantAdded:Connect(onDescendantAdded)
+game.Workspace.DescendantRemoving:Connect(onDescendantRemoving)
+
+-- Initial hide of all leaves
+hideLeaves()
