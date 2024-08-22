@@ -1,12 +1,12 @@
--- Removed Sprint, Using AHK instead
 local scripts = {
-    'https://raw.githubusercontent.com/1337h4xx/1/main/Longneck_V_B_H.lua',
     'https://raw.githubusercontent.com/1337h4xx/1/main/T_For_PVP',
     'https://raw.githubusercontent.com/1337h4xx/1/main/X_3rd_Person',
     'https://raw.githubusercontent.com/1337h4xx/1/main/Freecam%202.0',
     'https://raw.githubusercontent.com/1337h4xx/1/main/kill_notification',
-    'https://raw.githubusercontent.com/1337h4xx/1/main/mainstream_cracked',
-    'https://raw.githubusercontent.com/1337h4xx/1/main/SigmaV3',
+    'https://raw.githubusercontent.com/1337h4xx/1/main/mainstream_cracked'
+-- Removed Sigma
+-- Removed Sprint
+-- Removed Longneck
 }
 
 -- Function to create and resume a coroutine for each script
