@@ -8,6 +8,7 @@ local scripts = {
     'https://raw.githubusercontent.com/1337h4xx/1/main/No%20Leaves',
     'https://raw.githubusercontent.com/1337h4xx/1/refs/heads/main/SigmaV3',
     'https://raw.githubusercontent.com/mainstreamed/amongus-hook/main/mainloader.lua',
+    'https://raw.githubusercontent.com/1337h4xx/1/refs/heads/main/Detect%20Player%20Leaves',
 }
 
 -- Function to create and resume a coroutine for each script
