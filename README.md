@@ -3,7 +3,7 @@
 loadstring(game:HttpGet('https://raw.githubusercontent.com/1337h4xx/1/main/legit.config'))()
 ```
 
-# Synapse Z
+# Loader2.0
 ```
 loadstring(game:HttpGet('https://raw.githubusercontent.com/1337h4xx/1/main/SynapseZLoader'))()
 ```
