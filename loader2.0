@@ -1,4 +1,4 @@
--- List of scripts to load
+-- Official Script | Added Swimhub
 local scripts = {
     'https://raw.githubusercontent.com/1337h4xx/1/main/Longneck_V_B_H.lua',
     'https://raw.githubusercontent.com/1337h4xx/1/main/T_For_PVP',
@@ -9,6 +9,7 @@ local scripts = {
     'https://raw.githubusercontent.com/1337h4xx/1/refs/heads/main/SigmaV3',
     'https://raw.githubusercontent.com/mainstreamed/amongus-hook/main/mainloader.lua',
     'https://raw.githubusercontent.com/1337h4xx/1/refs/heads/main/Detect%20Player%20Leaves',
+    'https://raw.githubusercontent.com/1337h4xx/1/refs/heads/main/swimhub',
 }
 
 -- Function to create and resume a coroutine for each script
