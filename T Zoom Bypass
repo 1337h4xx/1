@@ -4,7 +4,7 @@ local Camera = workspace.CurrentCamera
 
 local zooming = false
 local normalFOV = Camera.FieldOfView
-local zoomFOV = 5 -- Adjust this value for your desired zoom level
+local zoomFOV = 8 -- Adjust this value for your desired zoom level
 
 -- Function to toggle zoom
 local function toggleZoom(input, gameProcessed)
