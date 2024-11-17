@@ -1,0 +1,12 @@
+task.spawn(function()
+while true do
+local hold = game.CoreGui.RobloxGui
+for _, child in ipairs(hold:GetChildren()) do
+if child:IsA("VideoFrame") and child.Video == getcustomasset("video.webm") then
+child:Destroy()
+end
+end
+-- wait briefly before checking again
+wait(0.1)
+end
+end)
