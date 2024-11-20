@@ -1,0 +1,49 @@
+local Plr = game:GetService("Players").LocalPlayer
+local Mouse = Plr:GetMouse()
+local UserInputService = game:GetService("UserInputService")
+
+local deletedObjects = {}
+
+local function isExcludedPath(obj)
+local excludedPaths = {
+workspace.Ignore.LocalCharacter.Bottom,
+workspace.Ignore.LocalCharacter.Middle,
+workspace.Ignore.LocalCharacter.Top
+}
+
+for _, excluded in ipairs(excludedPaths) do
+if obj == excluded or obj:IsDescendantOf(excluded) then
+return true
+end
+end
+
+return false
+end
+
+Mouse.Button1Down:connect(function()
+if not UserInputService:IsKeyDown(Enum.KeyCode.LeftControl) then return end
+if not Mouse.Target then return end
+
+local target = Mouse.Target
+
+if isExcludedPath(target) then return end
+
+table.insert(deletedObjects, {object = target:Clone(), parent = target.Parent, cframe = target.CFrame})
+
+target:Destroy()
+end)
+
+local function restoreDeletedObjects()
+for _, objData in ipairs(deletedObjects) do
+objData.object.Parent = objData.parent
+objData.object.CFrame = objData.cframe
+end
+
+deletedObjects = {}
+end
+
+UserInputService.InputBegan:Connect(function(input)
+if input.KeyCode == Enum.KeyCode.P then
+restoreDeletedObjects()
+end
+end)
