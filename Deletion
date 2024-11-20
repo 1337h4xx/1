@@ -1,3 +1,10 @@
+--[[
+
+Hold Ctrl to delete any object
+Keybind P to restore.
+
+]]
+
 local Plr = game:GetService("Players").LocalPlayer
 local Mouse = Plr:GetMouse()
 local UserInputService = game:GetService("UserInputService")
